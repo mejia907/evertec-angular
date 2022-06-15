@@ -5,6 +5,17 @@ Aplicativo que permite la integracion con la [API en Laravel](https://github.com
 
 Este proyecto se generó con  [Angular CLI](https://github.com/angular/angular-cli) version 14.0.1.
 
+## Instalaciones necesarias
+- Instalar [NODE js](https://nodejs.org/es/)
+- Instalar [Typescript](https://www.typescriptlang.org/)
+- Instalar [Angular CLI](https://cli.angular.io/)
+
+## Instalación
+
+Despues de clonar el repositorio se deben instalar las dependencias ejecutando el siguiente comando:
+
+    $ npm install
+        
 ## Servidor de desarrollo
 
 Ejecute `ng serve` para un servidor de desarrollo. Navegue a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambia alguno de los archivos de origen.
