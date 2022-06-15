@@ -1,0 +1,49 @@
+<div id="container">
+  <mat-spinner *ngIf="spinnerShow"></mat-spinner>
+  <mat-card *ngIf="numOperation > 0">
+    <mat-card-title >Orden</mat-card-title>
+    <mat-card-content>
+      <table *ngFor="let result of resultOperation; let row_no = index" class="table table-fixed">
+        <tr>
+          <td><b>Estado de la operación: </b></td>
+          <td>
+            <b [ngStyle]="{'color':getColor(result.transaction_state)}">{{ result.transaction_state }}</b>
+          </td>
+        </tr>
+        <tr>
+          <td><b>Detalle:</b></td>
+          <td>{{ result.message }}</td>
+        </tr>
+        <tr>
+          <td><b>Nº de orden:</b></td>
+          <td>{{ result.nro_order }}</td>
+        </tr>
+        <tr>
+          <td><b>Fecha:</b></td>
+          <td>{{ result.date | date }}</td>
+        </tr>
+        <tr>
+          <td><b>Nombre:</b></td>
+          <td>{{ result.name }}</td>
+        </tr>
+        <tr>
+          <td><b>Tipo documento:</b></td>
+          <td>{{ result.document_type }}</td>
+        </tr>
+        <tr>
+          <td><b>Nro. Documento:</b></td>
+          <td>{{ result.document }}</td>
+        </tr>
+        <tr>
+          <td><b>Valor:</b></td>
+          <td>$ {{ result.amount | number }}</td>
+        </tr>
+      </table>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" *ngIf="newPaid"  (click)="newpaid()">Nuevo Pago</button>
+        <button mat-raised-button color="primary" *ngIf="continuePaid"  (click)="continuepaid()">Continuar con el Pago</button>
+        <button mat-raised-button color="basic" (click)="back()">Cancelar</button>
+      </mat-card-actions>
+  </mat-card>
+</div>

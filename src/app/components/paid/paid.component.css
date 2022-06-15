@@ -1,0 +1,27 @@
+mat-card-content {
+  padding: 15px;
+}
+
+.card-data {
+  width: 100%;
+  margin-bottom: 8px;
+  margin: 40px;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url("https://www.lenovo.com/medias/lenovo-laptops-thinkbook-series-c-thinkbook-15-gen-2-amd-hero.png?context=bWFzdGVyfHJvb3R8MjYxNjIyfGltYWdlL3BuZ3xoYTMvaDlmLzE0MTkwNDgzMjc1ODA2LnBuZ3w0NGFkZDc1MjJhMzQyNzYyZmNiMzJhMWI5Y2U5MzcxYmM5NGZiMDEyZjhmZjg3MTY1NzBkMzdiYmNhNDBmOWQx");
+  background-size: cover;
+}
+
+.formPaid {
+  width: 70%;
+  margin-bottom: 8px;
+}
+
+.mat-form-field {
+  display: grid !important;
+}

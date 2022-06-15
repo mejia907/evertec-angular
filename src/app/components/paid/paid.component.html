@@ -1,0 +1,114 @@
+<div>
+  <mat-grid-list cols="2" rowHeight="1:1">
+    <mat-grid-tile>
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Laptop ThinkBook 15 3era Gen (15.6", AMD)</mat-card-title>
+          <mat-card-subtitle>Portatil lenovo</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://www.lenovo.com/medias/lenovo-laptops-thinkbook-series-c-thinkbook-15-gen-2-amd-hero.png?context=bWFzdGVyfHJvb3R8MjYxNjIyfGltYWdlL3BuZ3xoYTMvaDlmLzE0MTkwNDgzMjc1ODA2LnBuZ3w0NGFkZDc1MjJhMzQyNzYyZmNiMzJhMWI5Y2U5MzcxYmM5NGZiMDEyZjhmZjg3MTY1NzBkMzdiYmNhNDBmOWQx"/>
+        <mat-card-content>
+          <p>
+            La ThinkBook 14s presenta un diseño delgado y elegante con su chasis de aluminio completamente gris mineral y pantalla infinita. Sin embargo, esta laptop de 14" ofrece algo más que un buen aspecto: brinda tiempos de respuesta rápidos con su unidad de estado sólido, gráficos discretos predeterminados y teclas de acceso rápido para llamadas de Skype.
+          </p>
+          <p>
+            <b>$3.500.000</b>
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <form [formGroup]="formPaid" *ngIf="isPaid" class="formPaid">
+        <mat-card>
+          <mat-card-title>Datos del usuario</mat-card-title>
+
+          <mat-card-content>
+            <p>
+              <mat-form-field>
+                <mat-select  placeholder="Tipo de documento" formControlName="custumer_ducument_type" name="custumer_ducument_type">
+                  <mat-option *ngFor="let doc of documents_type" [value]="doc.code">
+                    {{ doc.code }} - {{ doc.name }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="custumer_ducument_type.hasError('required')">
+                  El tipo de documento es <strong>requerido</strong>
+                </mat-error>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field>
+                <input matInput placeholder="Documento" formControlName="custumer_ducument"/>
+                <mat-error *ngIf="custumer_ducument.hasError('required')">
+                  El documento es <strong>requerido</strong>
+                </mat-error>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field>
+                <input matInput placeholder="Nombre completo" formControlName="custumer_name"/>
+                <mat-error *ngIf="custumer_name.hasError('required')">
+                  El nombre completo es <strong>requerido</strong>
+                </mat-error>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field>
+                <input type="email" matInput formControlName="custumer_email" placeholder="E-mail"/>
+                <mat-error *ngIf="custumer_email.hasError('email') && !custumer_email.hasError('required')">
+                  Por favor ingrese un E-mail correcto
+                </mat-error>
+                <mat-error *ngIf="custumer_email.hasError('required')">
+                  El Email es <strong>requerido</strong>
+                </mat-error>
+              </mat-form-field>
+            </p>
+            <mat-form-field>
+              <input type="tel" matInput placeholder="Telefono" formControlName="custumer_mobile"/>
+              <mat-error *ngIf="custumer_mobile.hasError('required')">
+                El telefono es <strong>requerido</strong>
+              </mat-error>
+            </mat-form-field>
+          </mat-card-content>
+
+          <button mat-raised-button color="accent" (click)="validateData()" [disabled]="!formPaid.valid">
+            Comprar
+          </button>
+        </mat-card>
+      </form>
+
+      <div *ngIf="!isPaid">
+        <mat-card class="card-data">
+          <mat-card-title-group>
+            <mat-card-title>Portatil lenovo</mat-card-title>
+            <mat-card-subtitle>Laptop ThinkBook 15 3era Gen (15.6", AMD)</mat-card-subtitle>
+            <img mat-card-md-image src="https://www.lenovo.com/medias/lenovo-laptops-thinkbook-series-c-thinkbook-15-gen-2-amd-hero.png?context=bWFzdGVyfHJvb3R8MjYxNjIyfGltYWdlL3BuZ3xoYTMvaDlmLzE0MTkwNDgzMjc1ODA2LnBuZ3w0NGFkZDc1MjJhMzQyNzYyZmNiMzJhMWI5Y2U5MzcxYmM5NGZiMDEyZjhmZjg3MTY1NzBkMzdiYmNhNDBmOWQx"/>
+          </mat-card-title-group>
+          <mat-card-content>
+            <p>
+              <strong>Tipo documento:</strong>
+              {{ custumer_ducument_type.value }}
+            </p>
+            <p><strong>Documento:</strong> {{ custumer_ducument.value }}</p>
+            <p><strong>Nombre:</strong> {{ custumer_name.value }}</p>
+            <p><strong>E-mail:</strong> {{ custumer_email.value }}</p>
+            <p><strong>Telefono:</strong> {{ custumer_mobile.value }}</p>
+            <p><strong>Valor:</strong> $ 3.500.000</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" [disabled]="loading" (click)="paid(formPaid.value)">
+              Ir a Pagar
+            </button>
+            <button mat-raised-button color="basic" (click)="cancelTransaction()">
+              Cancelar
+            </button>
+          </mat-card-actions>
+          <mat-card-footer *ngIf="loading">
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+          </mat-card-footer>
+        </mat-card>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

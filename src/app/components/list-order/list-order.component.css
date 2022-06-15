@@ -1,0 +1,10 @@
+table {
+  width: 100%;
+}
+.title {
+  margin: 100px 0px 40px 0px;
+  font-size: 30px;
+}
+#container {
+  margin: 20px;
+}

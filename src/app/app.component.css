@@ -1,0 +1,12 @@
+.spacer {
+  flex: 1 1 auto;
+}
+.button-icon-text {
+    width: unset;
+}
+.text-button{
+   padding: 5px;  
+}
+.cursor-pointer{
+    cursor: pointer;
+}
